@@ -105,7 +105,6 @@ for d_name in d_names:
 
             # train and test
             for epoch in range(1, total_epochs + 1):
-                print(epoch)
                 pred = train()
                 val_loss, val_roc, val_acc, tmp_test_roc, tmp_test_acc = test()
                 if val_roc >= best_val_roc:
@@ -121,7 +120,6 @@ for d_name in d_names:
                         print('Early stop! Min loss: ', best_val_loss, ', Max accuracy: ', best_val_acc,
                               ', Max roc: ', best_val_roc)
                         break
-                print(best_val_roc)
             del model
             del data
 
