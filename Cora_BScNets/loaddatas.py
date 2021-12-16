@@ -25,10 +25,10 @@ def loaddatas(d_name):
 def get_edges_split(data, val_prop = 0.2, test_prop = 0.2):
     g = nx.Graph()
     g.add_nodes_from([i for i in range(len(data.y))])
-    ricci_edge_index_ = np.array((data.edge_index))
-    ricci_edge_index = [(ricci_edge_index_[0, i], ricci_edge_index_[1, i]) for i in
-                        range(np.shape(ricci_edge_index_)[1])]
-    g.add_edges_from(ricci_edge_index)
+    _edge_index_ = np.array((data.edge_index))
+    edge_index_ = [(_edge_index_[0, i], _edge_index_[1, i]) for i in
+                        range(np.shape(_edge_index_)[1])]
+    g.add_edges_from(edge_index_)
     adj = nx.adjacency_matrix(g)
 
     return get_adj_split(adj,val_prop = val_prop, test_prop = test_prop)
